@@ -39,6 +39,15 @@ else:
        )
    }
 
+class AutoConfig(object):
+    """
+    Autodetects the config file and type.
+    """
+    SUPPORTED = {
+        'settings.ini': RepositoryIni,
+        '.env': RepositoryEnv,
+    }
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
